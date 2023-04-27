@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import os
 
 
-folder_path = "/Users/jfoerderer/LRZ Sync+Share/Web Scraping for Scientists (SS2023) (Jens Förderer) (Johannes Gölz)/sample code/parse/html dump/"
+folder_path = "./parse/html dump/"
 
 #prepare output dataset
 output_filename = "products.csv"

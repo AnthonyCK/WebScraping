@@ -4,7 +4,7 @@ import csv
 import os
 
 #folder
-folder_path = "/Users/jfoerderer/LRZ Sync+Share/Web Scraping for Scientists (SS2023) (Jens Förderer) (Johannes Gölz)/sample code"
+folder_path = "./"
 
 #sample frame
 frame = "frame.csv"
