@@ -3,6 +3,7 @@
 Codes for PhD. Course, Web Scraping for Scientists: An Introduction with Python.
 
 - Python script of the web scraper
+- Link: http://di75wax.devweb.mwn.de
 - Scraped data as a .csv file with the following attributes for each of the 147 
 products (products in lines, attributes in columns)
   1. Product ID
