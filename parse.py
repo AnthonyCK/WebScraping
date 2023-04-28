@@ -54,16 +54,14 @@ def parseData():
                         except:
                             capacity = ''
 
-                        # Product category L1 
+                        # Product categories and ID
                         temp_var = currentFile.split('/')
                         product_id = temp_var[-1].split('.')[0]
-                        L1 = temp_var[-3]
-                        L2 = temp_var[-2]
-
-                        # Product category L2
+                        category_L1 = temp_var[-3]
+                        category_L2 = temp_var[-2]
 
                         # Append to list
-                        product = {'ID': product_id, 'L1': L1, 'L2': L2, "Product Name": name, "Price": price, 'Description': description, 'Stars': stars, 'Reviews': reviews, 'Colors': colors, 'Capacity': capacity}
+                        product = {'ID': product_id, 'L1': category_L1, 'L2': category_L2, "Product Name": name, "Price": price, 'Description': description, 'Stars': stars, 'Reviews': reviews, 'Colors': colors, 'Capacity': capacity}
                         list_for_writing.append(product)
     # Write to CSV
     data = pd.DataFrame(list_for_writing)
