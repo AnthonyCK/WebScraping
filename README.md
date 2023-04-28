@@ -17,3 +17,5 @@ products (products in lines, attributes in columns)
   9. Colors (if available)
   10. Storage capacity (if available)
 - Scraping log of the individual URLs as a .csv file
+
+Run fetch.py then parse.py.
