@@ -52,5 +52,5 @@ if __name__ == "__main__":
     fetch_data("computers", "laptops")
     fetch_data("computers", "tablets")
     fetch_data("phones", "touch")
-    pd.DataFrame(log).to_csv(constants.LOG_CSV, sep=";", index=False)
+    pd.DataFrame(log).to_csv(constants.LOG_CSV, index=False)
 
