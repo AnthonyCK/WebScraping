@@ -20,5 +20,7 @@ products (products in lines, attributes in columns)
 
 Run run.py.
 
-`python run.py`
+```
+python run.py
+```
 
