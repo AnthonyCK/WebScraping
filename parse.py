@@ -3,18 +3,14 @@ from bs4 import BeautifulSoup
 import re
 import os
 
-# Constants
-# URL = "http://di75wax.devweb.mwn.de"
-OUTPUT_CSV = "product_list.csv"
-LOG_CSV = "scraping_log.csv"
-FOLDER_PATH = "./html_files/"
+import constants
 
-def parseData():
+def parse_data():
     list_for_writing = []
 
     # Iterate over files in folder_path
-    for root, dirs, files in os.walk(FOLDER_PATH):
-        depth = root[len(FOLDER_PATH):].count(os.sep)
+    for root, dirs, files in os.walk(constants.FOLDER_PATH):
+        depth = root[len(constants.FOLDER_PATH):].count(os.sep)
 
         if depth == 1:  # Change this value to access directories at different depths
             for file in files:
@@ -65,7 +61,4 @@ def parseData():
                         list_for_writing.append(product)
     # Write to CSV
     data = pd.DataFrame(list_for_writing)
-    data.to_csv(OUTPUT_CSV, index=False)
-
-if __name__ == '__main__':
-    parseData()
+    data.to_csv(constants.OUTPUT_CSV, index=False)
