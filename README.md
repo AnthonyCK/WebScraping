@@ -19,6 +19,6 @@ products (products in lines, attributes in columns)
 - Scraping log of the individual URLs as a .csv file
 
 Run run.py.
-'''
-python run.py
-'''
+
+`python run.py`
+
