@@ -62,6 +62,3 @@ def parse_data():
     # Write to CSV
     data = pd.DataFrame(list_for_writing)
     data.to_csv(constants.OUTPUT_CSV, index=False)
-
-if __name__ == '__main__':
-    parse_data()

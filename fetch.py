@@ -4,17 +4,18 @@ from bs4 import BeautifulSoup
 import constants
 
 
-def fetch_data(category_1, category_2):
+def fetch_data(category_1, category_2, log):
     products = []
     url = constants.URL + f"/static/{category_1}/{category_2}.html"
-    # category_1 = "computers"
-    # category_2 = "laptops"
+
     while True:
         try:
+            # Get the HTML content of the page
             response = requests.get(url)
             soup = BeautifulSoup(response.text, "lxml")
-            log.append({"url":url, "message": "Success"})
+            log.append({"url":url, "message": "Success", "timestamp": pd.Timestamp.now()})
 
+            # Get the URL of all products on the page
             for anchor in soup.find_all("a", class_="title"): 
                 product_url = anchor.get("href")
                 if product_url:
@@ -34,23 +35,24 @@ def fetch_data(category_1, category_2):
             else:
                 break
         except:
-            log.append({"url":url, "message": "Fail: " + response.status_code})
+            log.append({"url":url, "message": "Fail: " + response.status_code, "timestamp": pd.Timestamp.now()})
 
+    # Download the HTML content of all products
     for item in products:
         try:
             page = requests.get(item['url'])
             file_path = f"{constants.FOLDER_PATH}/{item['L1']}/{item['L2']}/"
             with open(file_path + item['url'].split("/")[-1], 'wb+') as f:
                 f.write(page.content)
-            log.append({"url":item['url'], "message": "Success"})
+            log.append({"url":item['url'], "message": "Success", "timestamp": pd.Timestamp.now()})
         except:
-            log.append({"url":item['url'], "message": "Fail: " + page.status_code})
+            log.append({"url":item['url'], "message": "Fail: " + page.status_code, "timestamp": pd.Timestamp.now()})
 
 
-if __name__ == "__main__":
-    log = []
-    fetch_data("computers", "laptops")
-    fetch_data("computers", "tablets")
-    fetch_data("phones", "touch")
-    pd.DataFrame(log).to_csv(constants.LOG_CSV, index=False)
+# if __name__ == "__main__":
+#     log = []
+#     fetch_data("computers", "laptops")
+#     fetch_data("computers", "tablets")
+#     fetch_data("phones", "touch")
+#     pd.DataFrame(log).to_csv(constants.LOG_CSV, index=False)
 
