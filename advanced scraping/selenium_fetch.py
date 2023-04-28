@@ -14,11 +14,11 @@ import os
 from selenium import webdriver
 import time
 
-folder_path = "C:\\Users\\jensf\\LRZ Sync+Share\\Web Scraping with Python (SS2022)\\sample code\\advanced scraping\\"
+folder_path = ".\\advanced scraping\\"
 
 
 #start the chromedriver
-driver = webdriver.Chrome(folder_path + "chromedriver.exe")
+driver = webdriver.Edge(folder_path + "msedgedriver.exe")
 
 #clout
 #driver.get("https://yoururl.com")
